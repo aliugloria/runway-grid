@@ -6,7 +6,7 @@ import Socials from "./components/socials";
 const ROWS = 4;
 const COLS = 8;
 const GAP = 10;
-const ANIM_MS = 300;
+const ANIM_MS = 500;
 const TOTAL = ROWS * COLS;
 
 const figures = Array.from({ length: TOTAL }, (_, i) => `/images/${i + 1}.png`);
