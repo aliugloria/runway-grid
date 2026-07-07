@@ -7,7 +7,7 @@ const ROWS = 4;
 const COLS = 8;
 const GAP = 10;
 const ANIM_MS = 300;
-const TOTAL = ROWS * COLS; 
+const TOTAL = ROWS * COLS;
 
 const figures = Array.from({ length: TOTAL }, (_, i) => `/images/${i + 1}.png`);
 
@@ -50,8 +50,8 @@ export default function App() {
   const [rowSteps, setRowSteps] = useState<number[]>(Array(ROWS).fill(0));
   const [colSteps, setColSteps] = useState<number[]>(Array(COLS).fill(0));
 
-  const [autoOn, setAutoOn] = useState(false);
-  const [log, setLog] = useState("Auto playing...");
+  const [autoOn, setAutoOn] = useState(true);
+  // const [log, setLog] = useState("Auto playing...");
   const busyRef = useRef(false);
 
   const rowRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -63,7 +63,7 @@ export default function App() {
   function shiftRow(r: number, dir: 1 | -1) {
     if (busyRef.current) return;
     busyRef.current = true;
-    setLog(`Row ${r + 1} → ${dir === 1 ? "right ▶" : "◀ left"}`);
+    // setLog(`Row ${r + 1} → ${dir === 1 ? "right ▶" : "◀ left"}`);
 
     setRowSteps((prev) => {
       const n = [...prev];
@@ -97,7 +97,7 @@ export default function App() {
   function shiftCol(c: number, dir: 1 | -1) {
     if (busyRef.current) return;
     busyRef.current = true;
-    setLog(`Col ${c + 1} → ${dir === 1 ? "down ▼" : "▲ up"}`);
+    // setLog(`Col ${c + 1} → ${dir === 1 ? "down ▼" : "▲ up"}`);
 
     setColSteps((prev) => {
       const n = [...prev];
@@ -149,7 +149,7 @@ export default function App() {
     busyRef.current = false;
     setRowSteps(Array(ROWS).fill(0));
     setColSteps(Array(COLS).fill(0));
-    setLog("Reset.");
+    // setLog("Reset.");
   }
 
   useEffect(() => {
